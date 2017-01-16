@@ -1,7 +1,7 @@
 language: ruby
 rvm:
   - 2.2.5
-# env:
-#   - CODECLIMATE_REPO_TOKEN: f6a6582292341a8d5cb5a47f67cb1cc90140701408a90b03138cfb0f098a50ad
-# after_success:
-#   - bundle exec codeclimate-test-reporter
+env:
+  - CODECLIMATE_REPO_TOKEN: f939524e2264f37ad44630ebf4792978303baeef0c7d210660b3a55d97fa27ee
+after_success:
+  - bundle exec codeclimate-test-reporter
