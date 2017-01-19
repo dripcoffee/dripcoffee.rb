@@ -38,7 +38,7 @@ module DripCoffee
       self
     end
 
-    def earn
+    def earn(n)
     end
 
     def on(some_thing = {})

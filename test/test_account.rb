@@ -25,5 +25,20 @@ class TestAccount < Minitest::Test
       assert_equal true, @account.attach_bank_account(BigDecimal.new(1)).is_a?(DripCoffee::Bank)
       assert_equal BigDecimal.new(1), @account.bank_account.remain
     end
+
+    context "spend money" do
+      should "not available for number <= 0" do
+        @account.spend(0)
+        assert_equal BigDecimal.new(0), @account.temp_account
+        @account.spend(-1)
+        assert_equal BigDecimal.new(0), @account.temp_account
+      end
+
+      should "convert an Integer to BigDecimal" do
+        @account.spend(10)
+        assert_equal BigDecimal.new(-10), @account.temp_account
+        assert_equal ["spend,10"], @account.op_records
+      end
+    end
   end
 end
