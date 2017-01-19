@@ -24,7 +24,7 @@ module DripCoffee
       end
     end
 
-    def spend(n)
+    def use(n)
       return self if n <= 0
 
       if n.is_a? BigDecimal
@@ -33,18 +33,24 @@ module DripCoffee
         @temp_account = @temp_account - number(n)
       end
 
-      @op_records << "spend,#{n}"
+      @op_records << "use,#{n}"
 
       self
     end
 
-    def earn(n)
+    def to_buy(product = {})
     end
 
-    def on(some_thing = {})
+    def to_pay(bill = {})
+    end
+
+    def to_subscribe(service = {})
     end
 
     def for(some_reason = {})
+    end
+
+    def earn(n)
     end
 
     def confirm
